@@ -32,7 +32,7 @@ def main():
         ImageList(fileList="/home/yaohuaxu1/FCN/train.txt",
                   transform=transforms.Compose([
                       transforms.ToTensor(), ])),
-        shuffle=False,
+        shuffle=True,
         num_workers=8,
         batch_size=1)
     model = FCN16s(n_calss = 2)
