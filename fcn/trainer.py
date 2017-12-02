@@ -62,7 +62,7 @@ class Trainer(object):
             assert self.model.training
 
             if self.cuda:
-            	data, target = data.cuda(), target.cuda()
+                data, target = data.cuda(), target.cuda()
 
             """
             back_propagation
@@ -75,7 +75,7 @@ class Trainer(object):
             print "loss", loss.data
             #loss = loss / len(data)
             if np.isnan(np.float(loss.data[0])):
-            	raise ValueError('loss is nan while training')
+                raise ValueError('loss is nan while training')
             loss.backward()
             self.optim.step()
             
@@ -93,7 +93,7 @@ class Trainer(object):
             metrics = np.mean(metrics, axis=0)
 
             if self.iteration >= self.max_iter:
-            	break
+                break
     
     def train(self):
         max_epoch = int(math.ceil(1. * self.max_iter / len(self.train_loader)))
