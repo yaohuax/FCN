@@ -47,7 +47,7 @@ def get_parameters(model, bias):
 
 def main():
     print 'start'
-    file = '/Users/jihan/PycharmProjects/fcn_repo/data/fcn32s_from_caffe.pth'
+    file = '/home/yaohuaxu1/fcn32s_from_caffe.pth'
     model = fcn.models.FCN32s()
     cuda = torch.cuda.is_available()
     torch.manual_seed(1337)
@@ -61,7 +61,7 @@ def main():
         print m
     model.upscore = nn.ConvTranspose2d(2,2,64, stride=32,bias=False)
     train_dataloader = torch.utils.data.DataLoader(
-        ImageList(fileList="/Users/jihan/PycharmProjects/fcn_repo/train.txt",
+        ImageList(fileList="/home/yaohuaxu1/FCN/train.txt",
                   transform=transforms.Compose([
                       transforms.ToTensor(), ])),
         shuffle=False,
@@ -92,6 +92,8 @@ def main():
     trainer.epoch = start_epoch
     trainer.iteration = start_iteration
     trainer.train()
+    torch.save(model.state_dict(), '/home/yaohuaxu1/FCN')
+
 
 if __name__ == '__main__':
     main()

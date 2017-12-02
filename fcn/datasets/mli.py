@@ -57,14 +57,14 @@ class ImageList(data.Dataset):
         self.imgList   = list_reader(fileList)
         # self._transform = transform
         self.img_loader = img_loader
-        self.mean_bgr = np.array([104.00698793, 116.66876762, 122.67891434])
+        self.mean_bgr = np.array([55.9615, 70.0644, 77.1899])
 
     def __getitem__(self, index):
         final = []
         [imgPath1, imgPath2] = self.imgList[index]
         # print "hello"
-        img = self.img_loader(os.path.join("/Users/jihan/PycharmProjects/fcn_repo/data/images", imgPath1))
-        lbl = self.img_loader(os.path.join("/Users/jihan/PycharmProjects/fcn_repo/data/labels", imgPath2))
+        img = self.img_loader(os.path.join("/home/yaohuaxu1/FCN/data/images", imgPath1))
+        lbl = self.img_loader(os.path.join("/home/yaohuaxu1/FCN/data/labels", imgPath2))
         img, lbl = self.transform(img, lbl)
         return img, lbl
 
@@ -98,5 +98,5 @@ class ImageList(data.Dataset):
 #         img, lbl= data
 #         print img, lbl
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()

@@ -29,7 +29,7 @@ def main():
     if cuda:
         torch.cuda.manual_seed(1337)
     train_dataloader = torch.utils.data.DataLoader(
-        ImageList(fileList="/home/ji/PycharmProjects/FCN_repo/fcn/datasets/train.txt",
+        ImageList(fileList="/home/yaohuaxu1/FCN/train.txt",
                   transform=transforms.Compose([
                       transforms.ToTensor(), ])),
         shuffle=False,

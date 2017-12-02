@@ -1,12 +1,13 @@
 import math
 import os
 import os.path as osp
-
+import torch
 import fcn
 import numpy as np
 from torch.autograd import Variable
 import torch.nn.functional as F
 import tqdm
+from PIL import Image
 
 
 def cross_entropy(input, target, weight=None, size_average=True):
@@ -50,6 +51,7 @@ class Trainer(object):
         self.model.train()
       #  n_class = len(self.train_loader.dataset.class_names)
         n_class = 2
+        img_ind = 1
 
         for batch_idx, (data, target) in tqdm.tqdm(
                 enumerate(self.train_loader), total=len(self.train_loader),
@@ -68,10 +70,19 @@ class Trainer(object):
             back_propagation
             """
             data, target = Variable(data), Variable(target)
-            print data.data.shape
             self.optim.zero_grad()
             score = self.model(data)
-            print score.data.shape
+            n,c,h,w = score.data.shape
+            image = score.data.max(1)[1]
+            image = image.cpu().numpy().astype(np.uint8)
+            print image.shape
+            image = image.transpose(1,2,0).reshape(h,w)
+            print image.shape
+            image = Image.fromarray(image)
+            img_name = ''.join(["saved_img",str(img_ind),'.png'])
+            img_ind = img_ind + 1
+            image.save(img_name)
+
             loss = cross_entropy(score, target, size_average = self.size_average)
             print "loss", loss.data
             #loss = loss / len(data)
@@ -104,4 +115,5 @@ class Trainer(object):
             self.train_epoch()
             if self.iteration >= self.max_iter:
                 break
+
 
