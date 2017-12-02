@@ -64,7 +64,7 @@ class Trainer(object):
             assert self.model.training
 
             if self.cuda:
-                data, target = data.cuda(), target.cuda()
+                data, target = data, target
 
             """
             back_propagation
