@@ -69,7 +69,7 @@ class Trainer(object):
             """
             back_propagation
             """
-            data, target = Variable(data), Variable(target)
+            data, target = Variable(data).cuda(), Variable(target).cuda()
             self.optim.zero_grad()
             score = self.model(data)
             n,c,h,w = score.data.shape
