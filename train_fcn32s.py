@@ -50,9 +50,9 @@ def main():
     file = '/home/yaohuaxu1/fcn32s_from_caffe.pth'
     model = fcn.models.FCN32s()
     torch.manual_seed(1337)
+    model.load_state_dict(torch.load(file))
     model = model.cuda()
     print "start loading"
-    model.load_state_dict(torch.load(file))
     model.score_fr = nn.Conv2d(4096, 2, 1)
     model.upscore = nn.ConvTranspose2d(2,2,64, stride=32, bias=False)
     for m in model.modules():
