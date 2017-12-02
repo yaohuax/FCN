@@ -50,7 +50,7 @@ class Trainer(object):
     def train_epoch(self):
         self.model.train()
       #  n_class = len(self.train_loader.dataset.class_names)
-        n_class = 2
+        n_class = 21
         img_ind = 1
 
         for batch_idx, (data, target) in tqdm.tqdm(

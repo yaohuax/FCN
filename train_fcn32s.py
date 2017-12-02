@@ -51,9 +51,10 @@ def main():
     model = fcn.models.FCN32s()
     torch.manual_seed(1337)
     model = model.cuda()
-    model.load_state_dict(torch.load(file))
-    model.score_fr = nn.Conv2d(4096, 2, 1)
-    model.upscore = nn.ConvTranspose2d(2,2,64, stride=32, bias=False)
+    print "start loading"
+   # model.load_state_dict(torch.load(file))
+   # model.score_fr = nn.Conv2d(4096, 2, 1)
+   # model.upscore = nn.ConvTranspose2d(2,2,64, stride=32, bias=False)
     for m in model.modules():
         print m
     model.upscore = nn.ConvTranspose2d(2,2,64, stride=32,bias=False)
@@ -77,7 +78,7 @@ def main():
         momentum=cfg[1]['momentum'],
         weight_decay=cfg[1]['weight_decay'])
 
-
+    print "going into trainer"
     trainer = Trainer(cuda=False,
                       model=model,
                       optimizer=optim,
