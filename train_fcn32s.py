@@ -49,10 +49,8 @@ def main():
     print 'start'
     file = '/home/yaohuaxu1/fcn32s_from_caffe.pth'
     model = fcn.models.FCN32s()
-    cuda = torch.cuda.is_available()
     torch.manual_seed(1337)
-    if cuda:
-        model = model.cuda()
+    model = model.cuda()
     model.load_state_dict(torch.load(file))
     model.score_fr = nn.Conv2d(4096, 2, 1)
     model.upscore = nn.ConvTranspose2d(2,2,64, stride=32, bias=False)
