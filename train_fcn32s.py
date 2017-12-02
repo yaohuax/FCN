@@ -52,7 +52,6 @@ def main():
     cuda = torch.cuda.is_available()
     torch.manual_seed(1337)
     if cuda:
-        torch.cuda.manual_seed(1337)
         model = model.cuda()
     model.load_state_dict(torch.load(file))
     model.score_fr = nn.Conv2d(4096, 2, 1)
