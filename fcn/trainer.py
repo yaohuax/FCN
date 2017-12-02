@@ -68,6 +68,7 @@ class Trainer(object):
             back_propagation
             """
             data, target = Variable(data), Variable(target)
+            print data.data.shape
             self.optim.zero_grad()
             score = self.model(data)
             print score.data.shape

@@ -63,8 +63,8 @@ class ImageList(data.Dataset):
         final = []
         [imgPath1, imgPath2] = self.imgList[index]
         # print "hello"
-        img = self.img_loader(os.path.join("/home/ji/PycharmProjects/FCN_repo/data/images", imgPath1))
-        lbl = self.img_loader(os.path.join("/home/ji/PycharmProjects/FCN_repo/data/labels", imgPath2))
+        img = self.img_loader(os.path.join("/Users/jihan/PycharmProjects/fcn_repo/data/images", imgPath1))
+        lbl = self.img_loader(os.path.join("/Users/jihan/PycharmProjects/fcn_repo/data/labels", imgPath2))
         img, lbl = self.transform(img, lbl)
         return img, lbl
 
@@ -73,7 +73,8 @@ class ImageList(data.Dataset):
 
     def transform(self, img, lbl):
         img = np.array(img)
-        lbl = np.array(lbl)
+        lbl = np.array(lbl).astype(np.int32)
+        lbl[lbl == 255] = -1
         img = img[:, :, ::-1]  # RGB -> BGR
         img = img.astype(np.float64)
         img -= self.mean_bgr
@@ -85,17 +86,17 @@ class ImageList(data.Dataset):
 
 
 
-def main():
-    train_dataloader = torch.utils.data.DataLoader(
-                        ImageList(fileList="/home/lh/cv_ws/src/fcn_for_MLI/train.txt", 
-                        transform=transforms.Compose([ 
-                                transforms.ToTensor(),            ])),
-                        shuffle=False,
-                        num_workers=8,
-                        batch_size=1)
-    for i, data in enumerate(train_dataloader,0):
-        img, lbl= data
-        print img, lbl
+# def main():
+#     train_dataloader = torch.utils.data.DataLoader(
+#                         ImageList(fileList="/home/lh/cv_ws/src/fcn_for_MLI/train.txt",
+#                         transform=transforms.Compose([
+#                                 transforms.ToTensor(),            ])),
+#                         shuffle=False,
+#                         num_workers=8,
+#                         batch_size=1)
+#     for i, data in enumerate(train_dataloader,0):
+#         img, lbl= data
+#         print img, lbl
 
 if __name__ == '__main__':
     main()

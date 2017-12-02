@@ -4,7 +4,8 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-from .fcn32 import get_upsampling_weight
+from fcn32s import get_upsampling_weight
+import fcn32s
 
 
 class FCN8s(nn.Module):
