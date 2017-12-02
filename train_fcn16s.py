@@ -6,6 +6,8 @@ from train_fcn32s import get_parameters
 from fcn.datasets.mli import ImageList
 from fcn import Trainer
 import torchvision.transforms as transforms
+from fcn.models import FCN16s
+from fcn.models import FCN32s
 
 "could add more"
 configurations = {
@@ -32,10 +34,10 @@ def main():
         shuffle=False,
         num_workers=8,
         batch_size=1)
-    model = torchfcn.models.FCN16s()
+    model = FCN16s()
     start_epoch = 0
     start_iteration = 0
-    fcn32s = torchfcn.models.FCN32s()
+    fcn32s = FCN32s()
     fcn32s.load_state_dict(torch.load(cfg[1]['fcn32s_pretrained_model']))
     model.copy_params_from_fcn32s(fcn32s)
     if cuda:
