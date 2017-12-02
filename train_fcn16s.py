@@ -19,8 +19,6 @@ configurations = {
     )
 }
 
-here = osp.dirname(osp.abspath(__file__))
-
 def main():
     cfg = configurations
     cuda = torch.cuda.is_available()

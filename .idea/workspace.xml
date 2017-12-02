@@ -29,8 +29,8 @@
       <file leaf-file-name="train_fcn16s.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_fcn16s.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1206">
-              <caret line="67" column="26" lean-forward="true" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+            <state relative-caret-position="18">
+              <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -87,6 +87,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>score</find>
+      <find>here</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -253,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512174587399</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update train_fcn16s">
+      <created>1512175468265</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1512175468265</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -286,7 +294,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update fcn16s" />
-    <option name="LAST_COMMIT_MESSAGE" value="update fcn16s" />
+    <MESSAGE value="update train_fcn16s" />
+    <option name="LAST_COMMIT_MESSAGE" value="update train_fcn16s" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -465,8 +474,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train_fcn16s.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1206">
-          <caret line="67" column="26" lean-forward="true" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+        <state relative-caret-position="18">
+          <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
